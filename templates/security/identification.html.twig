@@ -1,0 +1,30 @@
+{% extends "Base.html.twig" %}
+
+{% block titre %} Identification {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille : Identification {% endblock %}
+
+{% block btnRetour %}<a href="{{path('default')}}" class="navbar-brand js-scroll-trigger Retour">Retour</a> {% endblock %}
+
+{% block body %} 
+    <section>
+      <form action="{{ path('security_login') }}" method="post">
+  <div class="form-group col-6 offset-3">
+    <label for="AdrMail">Adresse Mail</label>
+    <input type="email" class="form-control" id="AdrMail" name="_username" aria-describedby="emailHelp" placeholder="Entrer votre adresse mail" required>
+  </div>
+  <div class="form-group col-6 offset-3">
+    <label for="mdp">Mot de passe</label>
+    <input type="password" class="form-control" id="mdp" name="_password" placeholder="Mot de Passe" required>
+  </div>
+  <div class="form-group col-6 offset-3">
+    {% if error %}
+        
+        <div class="messageErreur">{{ error.message|trans() }}</div>
+    {% endif %}
+  <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
+</div>
+    </section> 
+    
+{% endblock %}

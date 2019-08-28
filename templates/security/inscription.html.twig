@@ -1,0 +1,32 @@
+ {% extends 'base.html.twig' %}
+
+{% block titre %} Incription {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille : Inscription {% endblock %}
+
+{% block btnRetour %}<a href="{{path('default')}}" class="navbar-brand js-scroll-trigger Retour">Retour</a> {% endblock %}
+
+{% block body %}
+  <section class="form-group col-6 offset-3">
+
+    {{form_start(form)}}
+
+    {{form_row(form.nom, {'attr':{'placeholder':'Entrer votre nom','class':'form-control'}})  }}
+
+    {{form_row(form.prenom,{'attr':{'placeholder':'Entrer votre prénom','class':'form-control'}}) }}
+
+    {{form_row(form.mail,{'label':'Adresse Mail','attr':{'placeholder':'Entrer votre adresse mail','class':'form-control'}})}}
+
+    {{form_row(form.mdp,{'label':'Mot de passe','attr':{'placeholder':'Entrer votre mot de passe','class':'form-control'}})}}
+
+    {{form_row(form.confirm_mdp,{'label':'Confirmation mot de passe','attr':{'placeholder':'Répétez votre mot de passe','class':'form-control'}})}}
+
+    {{form_row(form.numroles, {'label':'Classe','attr':{'class':'form-control'}}) }}
+
+    <button type="submit" name="btn" class="btn btn-primary">Inscription</button>
+
+    {{form_end(form)}}
+
+
+  </section>
+{% endblock %}

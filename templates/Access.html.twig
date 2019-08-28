@@ -1,0 +1,24 @@
+{% extends "Base.html.twig" %}
+{% block titre %} Cours de Mr Dhaille {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille {% endblock %}
+
+{% block nav %} 
+    <form action="{{path("security_logout")}}" method="post">
+            <button type="submit" class="btn btn-light">Déconnexion</button>
+        </form> 
+{% endblock %}
+
+{% block body %}
+    
+    <section id="about" class="espace">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+                <h3>Vous n'avez pas accés à ce contenu</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+{% endblock %}

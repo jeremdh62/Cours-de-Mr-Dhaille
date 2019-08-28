@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block titre %} Modification éléves {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille : Modification éléve {% endblock %}
+
+{% block btnRetour %}<a href="{{path('default')}}" class="navbar-brand js-scroll-trigger Retour">Retour</a> {% endblock %}
+
+{% block body %}
+  <section class="form-group col-6 offset-3">
+
+    {{ form_start(form) }}
+
+      <div class="form-group">
+        {{ form_row(form.nom, {'label':'Nom','attr':{'placeholder':'Entrer votre nom','class':'form-control'} }) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_row(form.prenom, {'label':'Prenom','attr':{'placeholder':'Entrer votre prenom','class':'form-control'} }) }}
+      </div>
+
+      <div class="form-group">
+        {{ form_row(form.mail, {'label':'Mail','attr':{'placeholder':'Entrer votre mail','class':'form-control'} }) }}
+      </div>
+
+      <div class="form-group">
+      {{form_row(form.numroles, {'label':'Classe','attr':{'class':'form-control'}}) }}
+      </div>
+
+    <button type="submit" name="btn" class="btn btn-primary">Modifier</button>
+
+    {{form_end(form)}}
+
+  </section>
+  {% endblock %}

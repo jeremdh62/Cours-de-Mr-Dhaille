@@ -1,0 +1,74 @@
+{% extends "Base.html.twig" %}
+
+{% block titre %} Lien vers mes sites {% endblock %}
+
+{% block Nom %} Lien vers mes sites {% endblock %}
+
+{% block btnRetour %}<a href="{{path('default')}}" class="navbar-brand js-scroll-trigger Retour">Retour</a> {% endblock %}
+
+
+{% block nav %} 
+
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Spécial éducation nationale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Pour les cours</a>
+            </li>
+          </ul>
+    
+        {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER2" in roles ' )) %}
+        <form action="{{path("security_logout")}}" method="post">
+            <button type="submit" class="btn btn-light">Déconnexion</button>
+        </form> 
+            
+        {% else %} 
+            
+           <a class="nav-link js-scroll-trigger Retour" href="{{path("security_login")}}">Connexion</a>
+                
+        {% endif %}
+
+{% endblock %}
+
+{% block body %} 
+
+<section id="about" class="espace">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Spécial éducation nationale</h2>
+
+            <ul>
+
+              <li><p class="lead"><a href="https://cas.savoirsnumeriques5962.fr/saml/login?service=http%3A%2F%2Fgustave-eiffel-armentieres.savoirsnumeriques5962.fr%2Fsg.do%3FPROC%3DIDENTIFICATION_FRONT&_pre_saml_idp=AAA_lyc_col_pen&_saml_idp=">Les savoirs numérique</a> (environnement numérique de travail)</p></li>
+
+              <li><p class="lead"><a href="http://www.lycee-gustave-eiffel.fr">lycée Gustave eiffel Armentières</a></p></li>
+
+            </ul>
+           
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-light espace2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Pour les cours</h2>
+            <ul>
+
+              <li><p class="lead"><a href="http://fr.openclassrooms.com/">Open Classroom</a> (Énormémént de cours en ligne sur beaucoup de sujet...)</p></li>
+
+              <li><p class="lead"><a href="http://ubuntu-fr.org/">La Comunauté Ubuntu</a></p></li>
+
+              <li><p class="lead"><a href="https://www.netacad.com/">Cisco Netcad</a></p></li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

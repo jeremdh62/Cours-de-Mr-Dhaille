@@ -1,0 +1,118 @@
+{% extends "Base.html.twig" %}
+
+{% block titre %} Cours de M Dhaille {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille {% endblock %}
+
+{% block nav %}
+
+              <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">A Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Cours/TP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+            {% if is_granted(expression('"ROLE_ADMIN" in roles' )) %}
+            <li>
+              <a class="nav-link js-scroll-trigger" href="{{path('eleves')}}">Liste éléves</a>
+            </li>
+            {% endif %}
+          </ul>
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <form action="{{path("security_logout")}}" method="post">
+            <button type="submit" class="btn btn-light">Déconnexion</button>
+        </form>
+
+        {% else %}
+
+           <a class="nav-link js-scroll-trigger Retour" href="{{path("security_login")}}">Connexion</a>
+
+        {% endif %}
+
+
+
+
+{% endblock %}
+
+{% block body %}
+  <section id="about" class="espace">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>A Propos</h2>
+            <p class="lead">Bonjour à tous</p>
+            <p class="lead">J'ai créé cette page web pour vous permettre de retrouver les cours que vous avez suivi.
+                Il suffit de cliquer sur le lien correspondant à votre classe.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-light espace2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Cours/TP</h2>
+            <ul>
+
+              <li><p class="lead"><a href="Mes_cours/présentation-section/2SN_web.publi/auroraW/index.html">Déroulement des classes <mark>2SEN, 1SEN, TSEN</mark></a></p></li>
+
+              {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_ADMIN" in roles')) %}
+                <li><p class="lead"><a href="Mes_cours/cours-2SN_web.publi/auroraW/index.html">Cours de la classe de <mark>2SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER" in roles  or "ROLE_ADMIN" in roles')) %}
+                <li><p class="lead"><a href="Mes_cours/cours-2SN-test.publi/auroraW/index.html">Test de connaissances <mark>2SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles')) %}
+                <li><p class="lead"><a href="Mes_cours/cours-1SN_web.publi/auroraW/index.html">Cours de la classe de <mark>1SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles')) %}
+                <li><p class="lead"><a href="">Cours réseau pour la classe de <mark>1SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
+                <li><p class="lead"><a href="Habilitation/index.html">Cours sur l'habilitation <mark>2SEN et 1SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
+                <li><p class="lead"><a href="Mes_cours/TP_web.publi/auroraW/index.html">Travaux Pratiques <mark>2SEN et 1SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
+                <li><p class="lead"><a href="">Boucle locale fibre optique <mark>2SEN et 1SEN</mark></a></p></li>
+              {% endif %}
+
+              {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
+                <li><p class="lead"><a href="Mes_cours/logiciel_web.publi/auroraW/index.html">Utilisation des logiciels <mark>2SEN et 1SEN</mark></a></p></li>
+              {% endif %}
+
+              <li><p class="lead"><a href="{{path("lienSite")}}">lien vers mes sites</a></p></li>
+
+              <li><p class="lead"><a href="Public/reforme/index.html">Réforme du Bac pro</a></p></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="espace2">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>Contact :</h2>
+            <p class="lead">eric.dhaille@ac-lille.fr</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+{% endblock %}

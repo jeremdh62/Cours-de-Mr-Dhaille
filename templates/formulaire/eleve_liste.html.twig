@@ -1,0 +1,56 @@
+ {% extends 'base.html.twig' %}
+
+{% block titre %} Liste éléves {% endblock %}
+
+{% block Nom %} Cours de Mr Dhaille : Liste éléves {% endblock %}
+
+{% block btnRetour %}<a href="{{path('default')}}" class="navbar-brand js-scroll-trigger Retour">Retour</a> {% endblock %}
+
+{% block body %}
+  <section class="form-group col-6 offset-3">
+
+              
+    <a type="button" class="btn btn-primary" href="{{path('security_registration')}}"> Ajouter </a>
+
+    
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Action</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Email<th>
+                <th>Classe</th>   
+            </tr>
+        </thead>
+        <tbody>
+            {% for unUtilisateur in utilisateurs %}
+             <tr>
+                <th scope="row"> 
+                    <div class="btn-group dropleft">
+                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <!-- Dropdown menu links -->
+                        <a class="dropdown-item" href="/Modification/{{unUtilisateur.id}}">Modifier</a>
+                            
+                        <a class="dropdown-item text-danger" href="#" data-id="{{unUtilisateur.id}}" > Supprimer </button>
+                      </div>
+                    </div>
+                </th>  
+
+                <td>{{ unUtilisateur.nom }}</td>
+                <td>{{ unUtilisateur.prenom }}</td>
+                <td>{{ unUtilisateur.mail }}
+                <td>{{unUtilisateur.numroles.classe }}</td>
+                
+            </tr>
+         {% endfor %}
+        </tbody>
+    </table>
+
+
+  </section>
+  {% endblock %}
