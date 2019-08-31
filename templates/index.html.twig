@@ -75,11 +75,11 @@
               {% endif %}
 
               {% if is_granted(expression('"ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles')) %}
-                <li><p class="lead"><a href="">Cours réseau pour la classe de <mark>1SEN</mark></a></p></li>
+                <li><p class="lead"><a href="Mes_cours/reseau-cours.publi/auroraW/index.html">Cours réseau pour la classe de <mark>1SEN</mark></a></p></li>
               {% endif %}
 
               {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
-                <li><p class="lead"><a href="Habilitation/index.html">Cours sur l'habilitation <mark>2SEN et 1SEN</mark></a></p></li>
+                <li><p class="lead"><a href="Mes_cours/Habilitation électique_web.publi/auroraW/index.html">Cours sur l'habilitation <mark>2SEN et 1SEN</mark></a></p></li>
               {% endif %}
 
               {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
@@ -87,7 +87,7 @@
               {% endif %}
 
               {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
-                <li><p class="lead"><a href="">Boucle locale fibre optique <mark>2SEN et 1SEN</mark></a></p></li>
+                <li><p class="lead"><a href="Mes_cours/boucle_locale_FO.publi/auroraW/index.html">Boucle locale fibre optique <mark>2SEN et 1SEN</mark></a></p></li>
               {% endif %}
 
               {% if is_granted(expression('"ROLE_USER" in roles or "ROLE_USER_2" in roles  or "ROLE_ADMIN" in roles' )) %}
@@ -96,7 +96,7 @@
 
               <li><p class="lead"><a href="{{path("lienSite")}}">lien vers mes sites</a></p></li>
 
-              <li><p class="lead"><a href="Public/reforme/index.html">Réforme du Bac pro</a></p></li>
+              <!-- <li><p class="lead"><a href="Public/reforme/index.html">Réforme du Bac pro</a></p></li> -->
 
             </ul>
           </div>
