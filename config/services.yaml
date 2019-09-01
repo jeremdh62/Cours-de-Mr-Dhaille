@@ -6,6 +6,10 @@
 parameters:
     locale: 'fr'
 
+    maintenance:
+        statut: false
+        ipAuthorized: ["::1","192.168.1.200"]
+
 services:
 
     _defaults:
@@ -31,6 +35,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\EventListener\MaintenanceListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+        arguments: ['%maintenance%']
 
 security:
       erase_credentials: false
