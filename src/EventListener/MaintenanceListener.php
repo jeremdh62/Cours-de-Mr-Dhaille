@@ -6,12 +6,15 @@ use Symfony\Component\HttpFoundation\Response;
 class MaintenanceListener
 {
     private $container, $maintenance, $ipAuthorized;
+
+    
     public function __construct($maintenance, ContainerInterface $container)
     {
         $this->container = $container;
         $this->maintenance = $maintenance["statut"];
         $this->ipAuthorized = $maintenance["ipAuthorized"];
     }
+
     public function onKernelRequest(GetResponseEvent $event)
     {
         // This will get the value of our maintenance parameter
