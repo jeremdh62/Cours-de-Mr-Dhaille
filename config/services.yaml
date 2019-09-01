@@ -7,7 +7,7 @@ parameters:
     locale: 'fr'
 
     maintenance:
-        statut: false
+        statut: true
         ipAuthorized: ["::1","192.168.1.200"]
 
 services:
