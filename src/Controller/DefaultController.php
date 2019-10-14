@@ -27,9 +27,7 @@ class DefaultController extends AbstractController {
     public function lUtilisateur()  {
 
         $repoU = $this->getDoctrine()->getRepository(\App\Entity\Utilisateur::Class);
-        $utilisateurs = $repoU->findBy(
-            ['numroles' => '1']
-        );
+        $utilisateurs = $repoU->findByNotAdmin();
 
         return $this->render('formulaire/eleve_liste.html.twig',[
             'controller_name' => 'Controller_Default',

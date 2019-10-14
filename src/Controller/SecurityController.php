@@ -76,7 +76,7 @@ class SecurityController extends AbstractController {
 
             $repoU= $this->getDoctrine()->getRepository(\App\Entity\Utilisateur::Class);
 
-            $utilisateurs= $repoU->findAll();
+            $utilisateurs= $repoU->findByNotAdmin();
 
             return $this->render('formulaire/eleve_liste.html.twig', ['controller_name' => 'Controller_Default',
             'utilisateurs'=> $utilisateurs 
@@ -107,7 +107,7 @@ class SecurityController extends AbstractController {
 
             $repoU= $this->getDoctrine()->getRepository(\App\Entity\Utilisateur::Class);
 
-            $utilisateurs= $repoU->findAll();
+            $utilisateurs= $repoU->findByNotAdmin();
 
             return $this->render('formulaire/eleve_liste.html.twig', ['controller_name' => 'Controller_Default',
             'utilisateurs'=> $utilisateurs 
