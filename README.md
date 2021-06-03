@@ -1,4 +1,4 @@
-# Cours de Mr Dhaille
+# Cours Mr Dhaille
 
 This App lists lessons and practical work by Mr Dhaille.
 
