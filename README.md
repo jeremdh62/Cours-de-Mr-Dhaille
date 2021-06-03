@@ -1,6 +1,6 @@
 # Cours de Mr Dhaille
 
-Cette application permet de répertorier tous les cours et TP.
+This App lists lessons and practical work by Mr Dhaille.
 
 ## Installation
 
